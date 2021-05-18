@@ -1,0 +1,64 @@
+.center {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.girl{
+    margin: 10px;
+}
+
+.container-girls{
+    flex-wrap:wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.main{
+    justify-content: space-between;
+}
+
+
+.text, p {
+    color: #4c4a37; font-family: ‘Source Sans Pro’, sans-serif; font-size: 18px; line-height: 32px;
+    margin-right: 10px;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+
+body{
+    background: #3F92D2;
+    margin-top: 30px;
+    margin-left: 180px;
+    margin-right: 180px;
+}
+
+footer{
+    background:#25567B;
+}
+
+
+.nav-link, a{
+    color: #FF4900;
+}
+
+img {
+    max-height: 200px;
+    width: auto;
+}
+
+.worlds{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}

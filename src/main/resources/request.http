@@ -1,0 +1,28 @@
+GET http://localhost:8080/worlds/
+
+
+###
+POST http://localhost:8080/worlds
+Content-Type: application/json
+
+{
+  "name" : "Teeeestttt",
+  "img" : "Claymore.jpg",
+  "personDtos" : null
+}
+
+
+###
+PUT http://localhost:8080/worlds/12
+Content-Type: application/json
+
+{
+"name" : "TesttttUpdate",
+"img" : "Azazazww",
+"personDtos" : null
+}
+
+
+###
+DELETE http://localhost:8080/worlds/11
+
