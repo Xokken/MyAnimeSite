@@ -12,7 +12,7 @@
                 <form style="margin-top: 10px" action="/persons" method="get" id="${world.name}">
                     <ul class="list-group list-group-horizontal">
                         <li class="list-group-item">
-                            <td><img src="http://localhost:8080/images/${world.img}"
+                            <td><img src="<@spring.url '/images/${world.img}'>"
                                      class="img-thumbnail"
                                      width="200px"sizes=""
                                      height="200px"></td>
