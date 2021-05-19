@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/upload").authenticated()
                 .antMatchers("/uploadError").authenticated()
                 //.antMatchers("/worlds").hasAuthority("ADMIN")
-                .antMatchers("/worlds").permitAll()
+                .antMatchers("/worlds/**").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/signin")

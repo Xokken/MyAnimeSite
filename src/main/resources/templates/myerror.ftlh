@@ -6,7 +6,7 @@
 <@basic.header></@basic.header>
     <body>
         <div class="center girl">
-            <img src="http://localhost:8080/images/error.jpg"
+            <img src="<@spring.url '/images/error.jpg'></@spring.url>"
                  class="img-thumbnail"
                  width="200px"sizes=""
                  height="200px">

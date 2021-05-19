@@ -1,4 +1,4 @@
-GET http://localhost:8080/worlds/
+GET http://localhost:8080/worlds
 
 
 ###
@@ -6,23 +6,23 @@ POST http://localhost:8080/worlds
 Content-Type: application/json
 
 {
-  "name" : "Teeeestttt",
+  "name" : "Teaeestttt",
   "img" : "Claymore.jpg",
   "personDtos" : null
 }
 
 
 ###
-PUT http://localhost:8080/worlds/12
+PUT http://localhost:8080/worlds/14
 Content-Type: application/json
 
 {
-"name" : "TesttttUpdate",
-"img" : "Azazazww",
+"name" : "TestUpdate",
+"img" : "Claymore.jpg",
 "personDtos" : null
 }
 
 
 ###
-DELETE http://localhost:8080/worlds/11
+DELETE http://localhost:8080/worlds/12
 

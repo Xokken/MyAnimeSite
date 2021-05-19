@@ -47,7 +47,7 @@ public class WorldServiceImpl implements WorldService {
     public WorldDto updateWorld(Long id, WorldDto worldDto) {
         World world = worldRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("World not found"));
         world.setName(worldDto.getName());
-        world.setImg(world.getImg());
+        world.setImg(worldDto.getImg());
         worldRepository.save(world);
         worldDto.setId(id);
         return worldDto;
