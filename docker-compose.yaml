@@ -1,0 +1,65 @@
+version: '3'
+
+networks:
+  anime_network:
+
+services:
+  anime-site:
+    build: .
+    networks:
+      - anime_network
+    container_name: anime-site
+    image: anime-site
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres_db
+      - nginx
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_db:5432/postgres
+      SPRING_DATASOURCE_USER: postgres
+      SPRING_DATASOURCE_PASSWORD: qwerty128
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      ALLOW_PUBLIC_KEY_RETRIEVAL: true
+  postgres_db:
+    networks:
+      - anime_network
+    restart: always
+    image: postgres
+    container_name: postgres_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: qwerty128
+
+  nginx:
+    container_name: nginx
+    image: nginx:1.13
+    restart: always
+    ports:
+      - "8083:8083"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - anime_network
+
+  loki:
+    image: grafana/loki:2.1.0
+    container_name: monitoring-loki
+    command: -config.file=/etc/loki/local-config.yaml
+    ports:
+      - "3100:3100"
+  grafana:
+    image: grafana/grafana:8.2.6
+    container_name: monitoring-grafana
+    volumes:
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml
+      - ./grafana/example.json:/var/lib/grafana/dashboards/example.json
+    ports:
+      - "3000:3000"
+    depends_on:
+      - loki
