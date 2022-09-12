@@ -10,6 +10,8 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 public class AnimeApi {
+
+
     private Gson gson = new Gson();
     private static String baseUrl="https://animechan.vercel.app/api";
     private static Interceptor interceptor = chain -> {
